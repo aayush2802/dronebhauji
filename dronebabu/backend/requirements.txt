@@ -1,7 +1,5 @@
 fastapi
-uvicorn
-numpy
-joblib
 pydantic
-
-
+numpy
+scikit-learn
+uvicorn
