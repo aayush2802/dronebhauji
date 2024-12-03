@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
 import joblib
+import ctypes  # Replacing pywin32 with ctypes for Windows API interaction
 
 app = FastAPI()
 
@@ -31,6 +32,14 @@ async def predict_crop(input: CropInput):
             crop_name = "Soybean"
         else:
             crop_name = "Paddy"
+
+        # OPTIONAL: Use ctypes for Windows-specific functionality (e.g., show a MessageBox)
+        ctypes.windll.user32.MessageBoxW(
+            None,
+            f"Predicted crop: {crop_name}",
+            "Prediction Alert",
+            1
+        )
 
         # Return the crop name as a string in the response
         return {"predicted_crop": crop_name}

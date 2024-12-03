@@ -3,4 +3,5 @@ uvicorn
 numpy
 joblib
 pydantic
-pywin32
+scikit-learn
+
